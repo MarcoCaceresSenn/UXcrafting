@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './navbar.component.css';
 import CustomNavbarBrand from './custom.navbar-brand.jsx';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function NavBarComponent() {
     return (
