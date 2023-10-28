@@ -1,0 +1,54 @@
+{
+    "users": [
+        {
+            "nombre": "Usuario 1",
+            "ingreso": 2000,
+            "gasto": 1000
+        },
+        {
+            "nombre": "Usuario 2",
+            "ingreso": 2500,
+            "gasto": 1300
+        },
+        {
+            "nombre": "Usuario 3",
+            "ingreso": 1800,
+            "gasto": 900
+        },
+        {
+            "nombre": "Usuario 4",
+            "ingreso": 2200,
+            "gasto": 2000
+        },
+        {
+            "nombre": "Usuario 5",
+            "ingreso": 1500,
+            "gasto": 900
+        },
+        {
+            "nombre": "Usuario 6",
+            "ingreso": 2400,
+            "gasto": 1500
+        },
+        {
+            "nombre": "Usuario 7",
+            "ingreso": 1700,
+            "gasto": 900
+        },
+        {
+            "nombre": "Usuario 8",
+            "ingreso": 2200,
+            "gasto": 2500
+        },
+        {
+            "nombre": "Usuario 9",
+            "ingreso": 1900,
+            "gasto": 1900
+        },
+        {
+            "nombre": "Usuario 10",
+            "ingreso": 2000,
+            "gasto": 2200
+        }
+    ]
+}

@@ -6,13 +6,13 @@ import { useNavigate } from "react-router-dom";
 
 export default function ButtonComponent() {
   const navigate = useNavigate();
-    const handleClick = () => {
-        navigate("/questionary");
-    };
+  const handleClick = () => {
+    navigate("/questionary");
+  };
   return (
     <div>
       <Button className="custom" onClick={handleClick}>
-        ¿Te gustaría mejorar tu experiencia? <BsFillEmojiWinkFill />
+        Optimiza tu inversión, descúbrelo aquí<BsFillEmojiWinkFill />
       </Button>
     </div>
   );

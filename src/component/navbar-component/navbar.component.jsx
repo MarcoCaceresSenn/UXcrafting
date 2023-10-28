@@ -13,7 +13,6 @@ function NavBarComponent() {
             <Navbar className='navbar bg-bcp' data-bs-theme="dark">
                 <Container>
                     <CustomNavbarBrand />
-
                     <Nav className="ml-auto align-items-center gap-5">
                         <Nav.Link href="#">Inicio</Nav.Link>
                         <Nav.Link href="#">Operaciones</Nav.Link>
