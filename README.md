@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+Para cargar librerias del proyecto utilizar siguiente comando:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### `npm install`
 
-## Available Scripts
-
-In the project directory, you can run:
+Para ejecutar:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Arquitectura Hexagonal
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+El proyecto sigue una arquitectura Hexagonal. Esta arquitectura permite una separación clara de las preocupaciones y facilita el mantenimiento y la escalabilidad del código. A continuación, se describe cómo se organiza el proyecto:
 
-### `npm test`
+### Estructura de Carpetas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **`src`**: Contiene el código fuente de la aplicación.
 
-### `npm run build`
+  - **`components`**: Carpeta que almacena los componentes reutilizables de la interfaz de usuario.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    - **`user-selector`**: Componentes relacionados con la selección de usuarios.
+    - **`graph-component`**: Componentes para visualización de datos, como gráficos.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  - **`infraestructura`**: Carpeta para archivos relacionados con la infraestructura, como datos de usuario simulados.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  - **`views`**: Contiene las vistas principales de la aplicación.
 
-### `npm run eject`
+- **`assets`**: Carpeta pública que contiene archivos estáticos como imágenes o hojas de estilo.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **`package.json`**: Archivo de configuración de Node.js que lista las dependencias del proyecto.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **`README.md`**: Este archivo que proporciona información sobre el proyecto y su estructura.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Vistas
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **`ExpenseAnalyzerView`**: Esta vista principal de la aplicación muestra la interfaz de usuario para analizar ingresos y gastos. Permite a los usuarios seleccionar un usuario, filtrar por meses y analizar datos.
 
-## Learn More
+- **`SummaryView`**: Es una parte esencial de la aplicación que proporciona un resumen conciso de la información de la tarjeta de débito. Permite a los usuarios seleccionar un usuario y el mes para ver un resumen rápido de los ingresos y gastos asociados a la tarjeta de débito.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Componentes
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **`UserSelector`**: Componente que proporciona una lista de usuarios para que el usuario principal seleccione.
 
-### Code Splitting
+- **`Pies`**: Componente que muestra gráficos de pastel (pie charts) para visualizar los ingresos y gastos totales.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **`SignalComponent`**: Componente que muestra señales de ahorro para categorías específicas basadas en los datos de gasto.
 
-### Analyzing the Bundle Size
+¡Gracias por utilizar el Nuestra Propuesta de mejora BCP!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
