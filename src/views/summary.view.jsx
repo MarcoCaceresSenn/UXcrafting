@@ -7,7 +7,7 @@ export default function SummaryView() {
         <div className='mt-5'>
             <Card className='w-75 mx-auto'>
                 <div className='w-50'>
-                    <h1 className='title-ubication' >Tarjeta de dédito</h1>
+                    <h1 className='title-ubication' >Tarjeta de débito</h1>
                     <div>
                         <h2  className='card-ubication'>**** 1478</h2>
                     </div>
