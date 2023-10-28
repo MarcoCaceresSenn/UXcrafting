@@ -1,18 +1,22 @@
-// QuestionCardComponent.jsx
 import React, { useState } from 'react';
+import './question.form.component.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-export default function QuestionCardComponent({ question, onNext, onPrev, isLastQuestion, prevAnswer }) {
-    const [answer, setAnswer] = useState(prevAnswer || '');
+export default function QuestionCardComponent({ questionNumber, question, onNext, onPrev, isLastQuestion, prevAnswer }) {
+    const [answer, setAnswer] = useState('');
 
     const handleAnswer = (value) => {
         setAnswer(value);
     };
 
     return (
-        <div className="d-flex justify-content-center align-items-center vh-100">
-            <div className="card square-card">
+        <div>
+            <div className="form-content">
                 <div className="card-body">
-                    <h5 className="card-title">{question}</h5>
+                    <div>
+                        <h3 className="question-title">{questionNumber}</h3>
+                        <p className='question'>{question}</p>
+                    </div>
                     <div className="form-check">
                         <input
                             type="radio"
@@ -39,18 +43,20 @@ export default function QuestionCardComponent({ question, onNext, onPrev, isLast
                             No
                         </label>
                     </div>
-
-                    {onPrev && (
-                        <button className="btn btn-secondary ml-2" onClick={onPrev}>
-                            Anterior
+                    <div className='text-center mt-3 mx-auto'>
+                        {onPrev && (
+                            <button className="btn btn-secondary " onClick={onPrev}>
+                                Anterior
+                            </button>
+                        )}
+                        <button
+                            className="btn btn-primary "
+                            onClick={() => onNext(answer)}
+                        >
+                            {isLastQuestion ? 'Finalizar' : 'Siguiente'}
                         </button>
-                    )}
-                    <button
-                        className="btn btn-primary"
-                        onClick={() => onNext(answer)}
-                    >
-                        {isLastQuestion ? 'Finalizar' : 'Siguiente'}
-                    </button>
+                    </div>
+
                 </div>
             </div>
         </div>
