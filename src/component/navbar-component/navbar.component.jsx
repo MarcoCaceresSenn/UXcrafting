@@ -16,7 +16,7 @@ function NavBarComponent() {
                     <Nav className="ml-auto align-items-center gap-5">
                         <Nav.Link href="#">Inicio</Nav.Link>
                         <Nav.Link href="#">Operaciones</Nav.Link>
-                        <Nav.Link className="custom-feature rounded" href="/mis-finanzas">Mis Finanzas</Nav.Link>
+                        <Nav.Link className="custom-feature rounded" href="/">Mis Finanzas</Nav.Link>
                         <Nav.Link href="#">Explora</Nav.Link>
                     </Nav>
                 </Container>

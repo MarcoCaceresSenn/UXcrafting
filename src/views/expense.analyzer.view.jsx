@@ -8,12 +8,13 @@ import Form from 'react-bootstrap/Form';
 
 import UserSelector from '../component/user-selector/user.selector';
 
+import Pies from '../component/graph-component/piechart';
+
 const usersData = require('../infraestructura/mocks/users.json');
 const users = usersData.users;
 
 const categories = ["comida", "alcohol", "ropa", "taxis", "otros"];
 const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-
 
 function ExpenseAnalyzerView() {
     const [selectedUser, setSelectedUser] = useState('');
@@ -23,6 +24,8 @@ function ExpenseAnalyzerView() {
     const [totalIngresos, setTotalIngresos] = useState(0);
     const [totalGastos, setTotalGastos] = useState(0);
     const [totalCategorias, setTotalCategorias] = useState({});
+    const [zeroPercentageCategories, setZeroPercentageCategories] = useState([]);
+    const [savings, setSavings] = useState(0);
 
     useEffect(() => {
         if (selectedUser) {
@@ -31,9 +34,25 @@ function ExpenseAnalyzerView() {
             const totalIngreso = user.ingresosPorMes.reduce((acc, mes) => acc + mes.ingreso, 0);
             const porcentaje = (totalGasto / totalIngreso) * 100;
             setGastoPorcentaje(porcentaje);
-        } 
+        }
     }, [selectedUser]);
 
+    const calculateSavings = () => {
+        const filteredCategories = categories.filter(category => !zeroPercentageCategories.includes(category));
+
+        const totalSavings = filteredCategories.reduce((acc, category) => {
+            const categoryGasto = totalCategorias[category] || 0;
+            return acc + categoryGasto;
+        }, 0);
+
+        return totalSavings;
+    };
+
+    const handleZeroPercentageCategoriesChange = (selectedCategories) => {
+        setZeroPercentageCategories(selectedCategories);
+        const savings = calculateSavings();
+        setSavings(savings);
+    };
 
     const handleFilterMonths = () => {
         if (!selectedUser) {
@@ -78,7 +97,7 @@ function ExpenseAnalyzerView() {
         });
 
         console.log("Total de ingresos filtrados:", totalIngresosFiltered);
-        console.log("Total de gastos filtrados:", totalGastosFiltered);
+        console.log("Total de Gastos filtrados:", totalGastosFiltered);
         console.log("Categorías totales:", categoriasTotales);
 
         setTotalIngresos(totalIngresosFiltered);
@@ -129,14 +148,25 @@ function ExpenseAnalyzerView() {
                     <h3>Resultados del Filtro:</h3>
                     <p>Total de Ingresos: {totalIngresos}</p>
                     <p>Total de Gastos: {totalGastos}</p>
-                    <ul>
-                        {categories.map((category, index) => (
-                            <li key={index}>
-                                {category}: {(((totalCategorias[category] || 0) / totalGastos) * 100).toFixed(2)}%
-                            </li>
-                        ))}
-                    </ul>
+                    <Form.Group controlId="zeroPercentageCategories">
+                        <Form.Label>Seleccione categoría para simular cuánto dinero hubiese ahorrado si no tenia gastos:</Form.Label>
+                        <Form.Control
+                            as="select"
+                            multiple
+                            onChange={(e) => handleZeroPercentageCategoriesChange(Array.from(e.target.selectedOptions, (option) => option.value))}
+                        >
+                            {categories.map((category) => (
+                                <option key={category} value={category}>
+                                    {category}
+                                </option>
+                            ))}
+                        </Form.Control>
+                    </Form.Group>
+                    <p>Total de dinero ahorrado: {savings}</p>
                 </Col>
+                <div className='w-50'>
+                    <Pies data={{ totalIngresos, totalGastos }} />
+                </div>
             </Row>
         </Container>
     );
