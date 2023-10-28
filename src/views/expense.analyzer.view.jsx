@@ -29,6 +29,7 @@ function ExpenseAnalyzerView() {
     const [totalCategorias, setTotalCategorias] = useState({});
     const [zeroPercentageCategories, setZeroPercentageCategories] = useState([]);
     const [savings, setSavings] = useState(0);
+    const [selectedCategory, setSelectedCategory] = useState("");
 
     useEffect(() => {
         if (selectedUser) {
@@ -55,6 +56,10 @@ function ExpenseAnalyzerView() {
 
     const handleZeroPercentageCategoriesChange = (selectedCategories) => {
         setZeroPercentageCategories(selectedCategories);
+        // Actualiza selectedCategory con la primera categoría seleccionada, si existe.
+        if (selectedCategories.length > 0) {
+            setSelectedCategory(selectedCategories[0]);
+        }
         const savings = calculateSavings();
         setSavings(savings);
     };
@@ -154,7 +159,7 @@ function ExpenseAnalyzerView() {
                     <p>Total de Ingresos: {totalIngresos}</p>
                     <p>Total de Gastos: {totalGastos}</p>
                     <Form.Group controlId="zeroPercentageCategories">
-                        <Form.Label>Seleccione categoría para simular cuánto dinero hubiese ahorrado si no tenia gastos:</Form.Label>
+                        <Form.Label>Seleccione categoría para simular cuánto dinero hubiese ahorrado si no tenía gastos:</Form.Label>
                         <Form.Control
                             as="select"
                             multiple
@@ -174,7 +179,7 @@ function ExpenseAnalyzerView() {
                 </div>
             </Row>
             <div>
-                <SignalComponent gasto={savings} categoria={selectedUser} />
+                <SignalComponent gasto={savings} categoria={selectedCategory} />
             </div>
             <div className='text-center'>
                 <ButtonComponentBCP />
