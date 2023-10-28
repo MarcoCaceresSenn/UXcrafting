@@ -8,3 +8,17 @@
 .progress-bar{
   background-color: var(--naranjo) !important;
   }
+
+  .gastos{
+     position: relative;
+     right: 18%;
+     top: 20px;
+     font-weight: bold;
+  }
+
+  .ingreso{
+    position: relative;
+    left: 18%;
+    top: 20px;
+    font-weight: bold;
+  }
