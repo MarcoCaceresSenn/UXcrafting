@@ -1,5 +1,4 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./button.component.css";
 import Button from "react-bootstrap/Button";
 import { BsFillPiggyBankFill } from "react-icons/bs";
 import { useState, useEffect } from "react";

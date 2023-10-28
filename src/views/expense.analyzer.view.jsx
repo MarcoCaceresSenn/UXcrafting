@@ -11,6 +11,7 @@ import './expense.css'
 import UserSelector from '../component/user-selector/user.selector';
 
 import Pies from '../component/graph-component/piechart';
+import ButtonComponentBCP from '../component/button-for-signal-component/button.signal.component'
 
 const usersData = require('../infraestructura/mocks/users.json');
 const users = usersData.users;
@@ -174,6 +175,9 @@ function ExpenseAnalyzerView() {
             </Row>
             <div>
                 <SignalComponent gasto={savings} categoria={selectedUser} />
+            </div>
+            <div className='text-center'>
+                <ButtonComponentBCP />
             </div>
         </Container>
     );

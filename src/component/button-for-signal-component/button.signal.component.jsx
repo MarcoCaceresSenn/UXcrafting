@@ -1,8 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./button.siganl.component.css";
 import Button from "react-bootstrap/Button";
+import './button.signal.component.css'
 
-export default function ButtonComponent() {
+export default function ButtonComponentBCP() {
   
   return (
     <div className="mb-5">
