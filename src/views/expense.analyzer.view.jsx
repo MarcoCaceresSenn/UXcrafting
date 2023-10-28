@@ -11,7 +11,7 @@ import UserSelector from '../component/user-selector/user.selector';
 const usersData = require('../infraestructura/mocks/users.json');
 const users = usersData.users;
 
-const categories = ["comida", "alcohol", "ropa", "familia", "otros"];
+const categories = ["comida", "alcohol", "ropa", "taxis", "otros"];
 const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
 
@@ -31,9 +31,7 @@ function ExpenseAnalyzerView() {
             const totalIngreso = user.ingresosPorMes.reduce((acc, mes) => acc + mes.ingreso, 0);
             const porcentaje = (totalGasto / totalIngreso) * 100;
             setGastoPorcentaje(porcentaje);
-        } else {
-            setGastoPorcentaje(0);
-        }
+        } 
     }, [selectedUser]);
 
 
@@ -134,7 +132,7 @@ function ExpenseAnalyzerView() {
                     <ul>
                         {categories.map((category, index) => (
                             <li key={index}>
-                                {category}: {((totalCategorias[category] || 0) / totalGastos) * 100}%
+                                {category}: {(((totalCategorias[category] || 0) / totalGastos) * 100).toFixed(2)}%
                             </li>
                         ))}
                     </ul>
