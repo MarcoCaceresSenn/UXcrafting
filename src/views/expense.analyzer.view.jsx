@@ -5,13 +5,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import SignalComponent from '../component/signal-component/signal.component'
-import './expense.css'
-
+import SignalComponent from '../component/signal-component/signal.component';
+import './expense.css';
 import UserSelector from '../component/user-selector/user.selector';
-
 import Pies from '../component/graph-component/piechart';
-import ButtonComponentBCP from '../component/button-for-signal-component/button.signal.component'
+import ButtonComponentBCP from '../component/button-for-signal-component/button.signal.component';
 
 const usersData = require('../infraestructura/mocks/users.json');
 const users = usersData.users;
@@ -42,24 +40,22 @@ function ExpenseAnalyzerView() {
     }, [selectedUser]);
 
     const calculateSavings = () => {
-        const filteredCategories = categories.filter(category => !zeroPercentageCategories.includes(category));
+        if (!selectedCategory) {
+            return 0;
+        }
 
-        const totalSavings = filteredCategories.reduce((acc, category) => {
-            const categoryGasto = totalCategorias[category] || 0;
-
-            console.log("acc se refiere al valor acumulado de la suma de los gastos de las categorías seleccionadas:", acc)
-            return acc + categoryGasto;
-        }, 0);
-        console.log("total savings se refiere a la suma de los gastos de las categorías seleccionadas:", totalSavings)
-        return totalSavings;
+        const categoryGasto = totalCategorias[selectedCategory] || 0;
+        return categoryGasto;
     };
 
     const handleZeroPercentageCategoriesChange = (selectedCategories) => {
         setZeroPercentageCategories(selectedCategories);
-        // Actualiza selectedCategory con la primera categoría seleccionada, si existe.
         if (selectedCategories.length > 0) {
             setSelectedCategory(selectedCategories[0]);
+        } else {
+            setSelectedCategory("");
         }
+
         const savings = calculateSavings();
         setSavings(savings);
     };

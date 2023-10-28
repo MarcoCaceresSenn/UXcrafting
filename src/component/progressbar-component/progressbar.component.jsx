@@ -5,32 +5,28 @@ import Button from "../button-component/button.component.jsx";
 
 export default function Progressbar({ mesSeleccionado, ingreso, gasto }) {
   const valorPorDefecto = 0;
-  const porcentajeIngreso = ((ingreso - gasto) / ingreso) * 100;
-  const valor = isNaN(porcentajeIngreso) ? valorPorDefecto : porcentajeIngreso;
-
-  console.log(valor);
+  const porcentajeGasto = (gasto / ingreso) * 100;
+  const valor = isNaN(porcentajeGasto) ? valorPorDefecto : porcentajeGasto;
 
   return (
     <div>
       <div className="d-flex justify-content-center">
-        <p className="gastos">Gastos</p>
-        <p className="ingreso">Ingresos</p>
+        <p className="gastos">Gastos: {gasto}</p>
+        <p className="ingreso">Ingresos: {ingreso}</p>
       </div>
       <div
         className="d-flex justify-content-center align-items-center"
         style={{ height: "5vh" }}
       >
-
         <ProgressBar
           className="w-100"
           now={valor}
           label={`${valor.toFixed(2)}%`}
         />
-
       </div>
 
       <div className="espacio">
-        <h1 className="texto-card">Descubre que hubiera pasado si gestionabas mejor tu dinero</h1>
+        <h1 className="texto-card">Descubre qué hubiera pasado si gestionabas mejor tu dinero</h1>
       </div>
       <Button porcentaje={valor} />
     </div>
