@@ -5,10 +5,6 @@
     --celeste: #3D77FF;
   }
   
-
 .progress-bar{
-  background-color: var(--naranjo);
-}
-.progreso {
-  background-color: 'lightgray',
-}
+  background-color: var(--naranjo) !important;
+  }

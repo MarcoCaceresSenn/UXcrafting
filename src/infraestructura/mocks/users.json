@@ -11,57 +11,57 @@
           {
             "mes": "Febrero",
             "ingreso": 1600,
-            "gasto": 800
+            "gasto": 400
           },
           {
             "mes": "Marzo",
             "ingreso": 1700,
-            "gasto": 850
+            "gasto": 500
           },
           {
             "mes": "Abril",
             "ingreso": 1800,
-            "gasto": 900
+            "gasto": 300
           },
           {
             "mes": "Mayo",
             "ingreso": 1900,
-            "gasto": 950
+            "gasto": 600
           },
           {
             "mes": "Junio",
             "ingreso": 2000,
-            "gasto": 1000
+            "gasto": 800
           },
           {
             "mes": "Julio",
             "ingreso": 2100,
-            "gasto": 1050
+            "gasto": 770
           },
           {
             "mes": "Agosto",
             "ingreso": 2200,
-            "gasto": 1100
+            "gasto": 790
           },
           {
             "mes": "Septiembre",
             "ingreso": 2300,
-            "gasto": 1150
+            "gasto": 800
           },
           {
             "mes": "Octubre",
             "ingreso": 2400,
-            "gasto": 1200
+            "gasto": 990
           },
           {
             "mes": "Noviembre",
             "ingreso": 2500,
-            "gasto": 1250
+            "gasto": 850
           },
           {
             "mes": "Diciembre",
             "ingreso": 2600,
-            "gasto": 1300
+            "gasto": 1100
           }
         ]
       },
@@ -71,62 +71,62 @@
           {
             "mes": "Enero",
             "ingreso": 1000,
-            "gasto": 1500
+            "gasto": 900
           },
           {
             "mes": "Febrero",
             "ingreso": 1100,
-            "gasto": 1600
+            "gasto": 750
           },
           {
             "mes": "Marzo",
             "ingreso": 1200,
-            "gasto": 1800
+            "gasto": 1100
           },
           {
             "mes": "Abril",
             "ingreso": 1300,
-            "gasto": 1950
+            "gasto": 1200
           },
           {
             "mes": "Mayo",
             "ingreso": 1400,
-            "gasto": 2100
+            "gasto": 1100
           },
           {
             "mes": "Junio",
             "ingreso": 1500,
-            "gasto": 2250
+            "gasto": 1200
           },
           {
             "mes": "Julio",
             "ingreso": 1600,
-            "gasto": 2400
+            "gasto": 1250
           },
           {
             "mes": "Agosto",
             "ingreso": 1700,
-            "gasto": 2550
+            "gasto": 1458
           },
           {
             "mes": "Septiembre",
             "ingreso": 1800,
-            "gasto": 2700
+            "gasto": 1540
           },
           {
             "mes": "Octubre",
             "ingreso": 1900,
-            "gasto": 2850
+            "gasto": 1599
           },
           {
             "mes": "Noviembre",
             "ingreso": 2000,
-            "gasto": 3000
+            "gasto": 1600
           },
           {
             "mes": "Diciembre",
             "ingreso": 2100,
-            "gasto": 3150
+            "gasto": 1800
           }
         ]
       }

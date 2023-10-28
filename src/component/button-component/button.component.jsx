@@ -12,7 +12,7 @@ export default function ButtonComponent() {
   return (
     <div>
       <Button className="custom" onClick={handleClick}>
-        Optimiza tu inversión, descúbrelo aquí<BsFillEmojiWinkFill />
+        Optimiza tu inversión, descúbrelo aquí <BsFillEmojiWinkFill />
       </Button>
     </div>
   );
