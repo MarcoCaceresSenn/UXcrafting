@@ -1,0 +1,12 @@
+:root {
+    --azul: #002A8D;
+    --naranjo: #FF7800;
+    --blanco: #FFFFFF;
+    --celeste: #3D77FF;
+  }
+  
+
+.progress-bar{
+  width: 50%;
+background-color: var(--naranjo);
+}
