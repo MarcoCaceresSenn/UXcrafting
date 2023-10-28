@@ -9,7 +9,7 @@ import SelectMonths from '../component/dropdown-select/dropdown.select.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 export default function View_test() {
     return (
-        <div >
+        <div className='text-center' >
           <SelectMonths/>
           <Button/>
         </div>

@@ -1,54 +1,135 @@
 {
     "users": [
-        {
-            "nombre": "Usuario 1",
-            "ingreso": 2000,
-            "gasto": 1000
-        },
-        {
-            "nombre": "Usuario 2",
-            "ingreso": 2500,
-            "gasto": 1300
-        },
-        {
-            "nombre": "Usuario 3",
+      {
+        "nombre": "Usuario con Gastos Bajos",
+        "ingresosPorMes": [
+          {
+            "mes": "Enero",
+            "ingreso": 1500,
+            "gasto": 700
+          },
+          {
+            "mes": "Febrero",
+            "ingreso": 1600,
+            "gasto": 800
+          },
+          {
+            "mes": "Marzo",
+            "ingreso": 1700,
+            "gasto": 850
+          },
+          {
+            "mes": "Abril",
             "ingreso": 1800,
             "gasto": 900
-        },
-        {
-            "nombre": "Usuario 4",
-            "ingreso": 2200,
-            "gasto": 2000
-        },
-        {
-            "nombre": "Usuario 5",
-            "ingreso": 1500,
-            "gasto": 900
-        },
-        {
-            "nombre": "Usuario 6",
-            "ingreso": 2400,
-            "gasto": 1500
-        },
-        {
-            "nombre": "Usuario 7",
-            "ingreso": 1700,
-            "gasto": 900
-        },
-        {
-            "nombre": "Usuario 8",
-            "ingreso": 2200,
-            "gasto": 2500
-        },
-        {
-            "nombre": "Usuario 9",
+          },
+          {
+            "mes": "Mayo",
             "ingreso": 1900,
-            "gasto": 1900
-        },
-        {
-            "nombre": "Usuario 10",
+            "gasto": 950
+          },
+          {
+            "mes": "Junio",
             "ingreso": 2000,
-            "gasto": 2200
-        }
+            "gasto": 1000
+          },
+          {
+            "mes": "Julio",
+            "ingreso": 2100,
+            "gasto": 1050
+          },
+          {
+            "mes": "Agosto",
+            "ingreso": 2200,
+            "gasto": 1100
+          },
+          {
+            "mes": "Septiembre",
+            "ingreso": 2300,
+            "gasto": 1150
+          },
+          {
+            "mes": "Octubre",
+            "ingreso": 2400,
+            "gasto": 1200
+          },
+          {
+            "mes": "Noviembre",
+            "ingreso": 2500,
+            "gasto": 1250
+          },
+          {
+            "mes": "Diciembre",
+            "ingreso": 2600,
+            "gasto": 1300
+          }
+        ]
+      },
+      {
+        "nombre": "Usuario con Gastos Altos",
+        "ingresosPorMes": [
+          {
+            "mes": "Enero",
+            "ingreso": 1000,
+            "gasto": 1500
+          },
+          {
+            "mes": "Febrero",
+            "ingreso": 1100,
+            "gasto": 1600
+          },
+          {
+            "mes": "Marzo",
+            "ingreso": 1200,
+            "gasto": 1800
+          },
+          {
+            "mes": "Abril",
+            "ingreso": 1300,
+            "gasto": 1950
+          },
+          {
+            "mes": "Mayo",
+            "ingreso": 1400,
+            "gasto": 2100
+          },
+          {
+            "mes": "Junio",
+            "ingreso": 1500,
+            "gasto": 2250
+          },
+          {
+            "mes": "Julio",
+            "ingreso": 1600,
+            "gasto": 2400
+          },
+          {
+            "mes": "Agosto",
+            "ingreso": 1700,
+            "gasto": 2550
+          },
+          {
+            "mes": "Septiembre",
+            "ingreso": 1800,
+            "gasto": 2700
+          },
+          {
+            "mes": "Octubre",
+            "ingreso": 1900,
+            "gasto": 2850
+          },
+          {
+            "mes": "Noviembre",
+            "ingreso": 2000,
+            "gasto": 3000
+          },
+          {
+            "mes": "Diciembre",
+            "ingreso": 2100,
+            "gasto": 3150
+          }
+        ]
+      }
     ]
-}
+  }
+  
