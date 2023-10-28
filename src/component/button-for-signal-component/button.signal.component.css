@@ -1,0 +1,23 @@
+:root {
+    --azul: #002A8D;
+    --naranjo: #FF7800;
+    --blanco: #FFFFFF;
+    --celeste: #3D77FF;
+  }
+
+.custom{
+    background-color: var(--naranjo);
+    color: var(--blanco);
+    font-weight: bold;
+    border: none;
+    font-size: 20px;
+    margin-top:50px ;
+    
+}
+
+.custom:hover{
+    background-color: var(--celeste);
+    color: white;
+
+
+}
