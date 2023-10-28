@@ -7,24 +7,24 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 import UserSelector from '../component/user-selector/user.selector';
-import ExpenseMessage from '../component/expense-message/expense.message';
 
 const usersData = require('../infraestructura/mocks/users.json');
 const users = usersData.users;
 
-const categories = ["comida", "alcohol", "ocio", "familia", "otros"];
+const categories = ["comida", "alcohol", "ropa", "familia", "otros"];
+const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
 
 function ExpenseAnalyzerView() {
     const [selectedUser, setSelectedUser] = useState('');
-    const [selectedCategory, setSelectedCategory] = useState("");
-    const [selectedPercentage, setSelectedPercentage] = useState("");
-    const [categoryData, setCategoryData] = useState({});
     const [gastoPorcentaje, setGastoPorcentaje] = useState(0);
-    const [errorMessage, setErrorMessage] = useState("");
-    const [warningMessage, setWarningMessage] = useState("");
+    const [selectedStartMonth, setSelectedStartMonth] = useState("");
+    const [selectedEndMonth, setSelectedEndMonth] = useState("");
+    const [totalIngresos, setTotalIngresos] = useState(0);
+    const [totalGastos, setTotalGastos] = useState(0);
+    const [totalCategorias, setTotalCategorias] = useState({});
 
     useEffect(() => {
-        // Calcula el porcentaje de gasto
         if (selectedUser) {
             const user = users.find((user) => user.nombre === selectedUser);
             const totalGasto = user.ingresosPorMes.reduce((acc, mes) => acc + mes.gasto, 0);
@@ -36,94 +36,105 @@ function ExpenseAnalyzerView() {
         }
     }, [selectedUser]);
 
-    const handleAddCategory = () => {
-        if (selectedUser && selectedCategory && selectedPercentage !== "") {
-            const percentage = parseFloat(selectedPercentage);
-            const existingPercentage = categoryData[selectedCategory] || 0;
-            const totalPercentage = Object.values(categoryData).reduce((acc, val) => acc + val, 0);
 
-            if (percentage <= 100 && totalPercentage + percentage <= 100) {
-                setCategoryData({
-                    ...categoryData,
-                    [selectedCategory]: existingPercentage + percentage,
-                });
-                setSelectedCategory("");
-                setSelectedPercentage("");
-                setErrorMessage("");
-            } else {
-                setErrorMessage("La suma de los porcentajes no puede superar el 100%.");
+    const handleFilterMonths = () => {
+        if (!selectedUser) {
+            console.log("No se ha seleccionado un usuario. La acción se ha detenido.");
+            return;
+        }
+
+        const user = users.find((user) => user.nombre === selectedUser);
+
+        if (!user) {
+            console.log("Usuario no encontrado. La acción se ha detenido.");
+            return;
+        }
+
+        if (!selectedStartMonth || !selectedEndMonth) {
+            console.log("No se han seleccionado meses de inicio o fin. La acción se ha detenido.");
+            return;
+        }
+        const startMonthIndex = months.indexOf(selectedStartMonth);
+        const endMonthIndex = months.indexOf(selectedEndMonth);
+
+        if (startMonthIndex === -1 || endMonthIndex === -1 || startMonthIndex > endMonthIndex) {
+            console.log("Meses seleccionados inválidos o rango incorrecto. La acción se ha detenido.");
+            return;
+        }
+
+        const filteredMonths = user.ingresosPorMes.filter((mes) => {
+            const currentMonthIndex = months.indexOf(mes.mes);
+            return currentMonthIndex >= startMonthIndex && currentMonthIndex <= endMonthIndex;
+        });
+
+        const totalIngresosFiltered = filteredMonths.reduce((acc, mes) => acc + mes.ingreso, 0);
+        const totalGastosFiltered = filteredMonths.reduce((acc, mes) => acc + mes.gasto, 0);
+
+        const categoriasTotales = {};
+
+        filteredMonths.forEach((mes) => {
+            for (const categoria in mes.categoriaPorcentaje) {
+                const categoriaGasto = (mes.categoriaPorcentaje[categoria] * mes.gasto) / 100;
+                categoriasTotales[categoria] = (categoriasTotales[categoria] || 0) + categoriaGasto;
             }
-        } else {
-            setErrorMessage("Selecciona una categoría y un porcentaje.");
-        }
+        });
+
+        console.log("Total de ingresos filtrados:", totalIngresosFiltered);
+        console.log("Total de gastos filtrados:", totalGastosFiltered);
+        console.log("Categorías totales:", categoriasTotales);
+
+        setTotalIngresos(totalIngresosFiltered);
+        setTotalGastos(totalGastosFiltered);
+        setTotalCategorias(categoriasTotales);
     };
-
-    const handleResetCategories = () => {
-        setCategoryData({});
-        setErrorMessage("");
-    };
-
-    useEffect(() => {
-        const totalCategoryPercentage = Object.values(categoryData).reduce((acc, val) => acc + val, 0);
-
-        if (totalCategoryPercentage >= 50 && totalCategoryPercentage < 75) {
-            setWarningMessage("CUIDADO CON LOS GASTOS HORMIGA");
-        } else if (totalCategoryPercentage >= 75) {
-            setWarningMessage("ESTAS DESPILFARRANDO TU DINERO");
-        } else {
-            setWarningMessage("");
-        }
-    }, [categoryData]);
 
     return (
         <Container>
-            <h1 className="mt-4">Analizador de Gastos</h1>
+            <h1 className="mt-4 border-bottom">Analizador de Gastos</h1>
             <Row className="mt-4">
                 <Col sm={6}>
                     <UserSelector users={users} selectedUser={selectedUser} onSelectUser={setSelectedUser} />
-                    <ExpenseMessage gastoPorcentaje={gastoPorcentaje} />
-                </Col>
-                <Col sm={6}>
-                    <Form.Group controlId="categoryDropdown">
-                        <Form.Label>Selecciona una categoría</Form.Label>
-                        <Form.Select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
-                            <option value="">Selecciona una categoría</option>
-                            {categories.map((category, index) => (
-                                <option key={index} value={category}>
-                                    {category}
-                                </option>
-                            ))}
-                        </Form.Select>
-                    </Form.Group>
-                    <Form.Group controlId="percentageInput">
-                        <Form.Label>Porcentaje</Form.Label>
-                        <Form.Control
-                            type="number"
-                            step="0.01"
-                            value={selectedPercentage}
-                            onChange={(e) => setSelectedPercentage(e.target.value)}
-                        />
-                    </Form.Group>
-                    <div className='mt-4'>
-                        <Button variant="primary" onClick={handleAddCategory}>
-                            Agregar Categoría
-                        </Button>
-                        <Button variant="danger" className="ms-2" onClick={handleResetCategories}>
-                            Resetear Porcentajes
-                        </Button>
-                    </div>
-
-                    {errorMessage && <p className="text-danger mt-2">{errorMessage}</p>}
-                    {warningMessage && <p className="text-warning mt-2">{warningMessage}</p>}
                 </Col>
             </Row>
             <Row className="mt-4">
                 <Col>
-                    <h3>Categorías y Porcentajes:</h3>
+                    <h3>Filtrar por Meses:</h3>
+                    <Form.Group controlId="startMonth">
+                        <Form.Label>Mes de Inicio</Form.Label>
+                        <Form.Select className='w-50' value={selectedStartMonth} onChange={(e) => setSelectedStartMonth(e.target.value)}>
+                            <option value="">Selecciona un mes</option>
+                            {users[0].ingresosPorMes.map((mes, index) => (
+                                <option key={index} value={mes.mes}>
+                                    {mes.mes}
+                                </option>
+                            ))}
+                        </Form.Select>
+                    </Form.Group>
+                    <Form.Group controlId="endMonth">
+                        <Form.Label>Mes de Término</Form.Label>
+                        <Form.Select className='w-50' value={selectedEndMonth} onChange={(e) => setSelectedEndMonth(e.target.value)}>
+                            <option value="">Selecciona un mes</option>
+                            {users[0].ingresosPorMes.map((mes, index) => (
+                                <option key={index} value={mes.mes}>
+                                    {mes.mes}
+                                </option>
+                            ))}
+                        </Form.Select>
+                    </Form.Group>
+                    <Button className='mt-2' variant="primary" onClick={handleFilterMonths}>
+                        Filtrar Meses
+                    </Button>
+                </Col>
+            </Row>
+            <Row className="mt-4">
+                <Col>
+                    <h3>Resultados del Filtro:</h3>
+                    <p>Total de Ingresos: {totalIngresos}</p>
+                    <p>Total de Gastos: {totalGastos}</p>
                     <ul>
                         {categories.map((category, index) => (
                             <li key={index}>
-                                {category}: {categoryData[category] || 0}%
+                                {category}: {((totalCategorias[category] || 0) / totalGastos) * 100}%
                             </li>
                         ))}
                     </ul>
