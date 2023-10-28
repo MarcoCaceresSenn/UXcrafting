@@ -50,7 +50,7 @@ var midata = {
         {
             label: 'Beneficios',
             data: beneficios,
-            backgroundColor: 'rgba(0, 220, 195, 0.5)'
+            backgroundColor: '#E95D00'
         }
     ]
 };
