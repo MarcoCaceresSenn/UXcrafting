@@ -1,0 +1,6 @@
+.card-image {
+    max-width: 100%; /* Ajusta el ancho máximo al 100% de la tarjeta */
+    max-height: 100%; /* Ajusta la altura máxima al 100% de la tarjeta */
+    width: 100%; /* Establece el ancho al 100% de la tarjeta */
+    height: auto; /* Ajusta la altura automáticamente */
+}
