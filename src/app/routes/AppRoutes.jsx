@@ -8,6 +8,7 @@ export default function AppRoutes() {
         <Router>
             <Routes>
                 <Route path="/" element={<SummaryView/>} />
+                <Route path="/expense-analyzer" element={<ExpenseAnalyzerView/>} />
             </Routes>
         </Router>
     );
