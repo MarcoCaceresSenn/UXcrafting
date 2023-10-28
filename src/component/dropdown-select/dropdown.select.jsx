@@ -19,7 +19,6 @@ export default function DropdownSelect() {
     const userId = event.target.value;
     setSelectedUserId(userId);
     setSelectedUser(usuarios[userId]);
-    // Reiniciar la selección de mes cuando se cambia de usuario
     setMesSeleccionado("");
   };
 
@@ -47,7 +46,6 @@ export default function DropdownSelect() {
             onChange={handleMonthChange}
             aria-label="Select a month"
             disabled={!selectedUser}
-    
           >
             <option value="">Selecciona un mes</option>
             {selectedUser &&
@@ -60,10 +58,11 @@ export default function DropdownSelect() {
         </div>
         <div className="w-50 mb-3">
         </div>
-        <div className="w-50">
-          <ProgressBar
+          
+        <div className="w-50">  
+        <div>
+        <ProgressBar
             mesSeleccionado={mesSeleccionado}
-
             ingreso={
               selectedUser ? getIngresoForMes(selectedUser, mesSeleccionado) : 0
             }
@@ -72,6 +71,7 @@ export default function DropdownSelect() {
             }
           />
         </div>
+        </div>
       </div>
     </div>
   );
@@ -79,11 +79,8 @@ export default function DropdownSelect() {
 
 function getIngresoForMes(user, mes) {
   const ingresosPorMes = user.ingresosPorMes;
-
   const mesSeleccionado = ingresosPorMes.find((m) => m.mes === mes);
-
   console.log(mesSeleccionado)
-
   return mesSeleccionado ? mesSeleccionado.ingreso : 0;
 }
 
