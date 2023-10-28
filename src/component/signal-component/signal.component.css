@@ -1,0 +1,9 @@
+.color-text {
+  color: var(--azul);
+}
+.bg-sign {
+    background-color: #FF89201A;
+}
+.text-bold {
+    font-weight: bold;
+}

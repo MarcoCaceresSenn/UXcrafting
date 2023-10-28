@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import SignalComponent from '../component/signal-component/signal.component'
 import './expense.css'
 
 import UserSelector from '../component/user-selector/user.selector';
@@ -43,9 +44,11 @@ function ExpenseAnalyzerView() {
 
         const totalSavings = filteredCategories.reduce((acc, category) => {
             const categoryGasto = totalCategorias[category] || 0;
+
+            console.log("acc se refiere al valor acumulado de la suma de los gastos de las categorías seleccionadas:", acc)
             return acc + categoryGasto;
         }, 0);
-
+        console.log("total savings se refiere a la suma de los gastos de las categorías seleccionadas:", totalSavings)
         return totalSavings;
     };
 
@@ -169,6 +172,9 @@ function ExpenseAnalyzerView() {
                     <Pies data={{ totalIngresos, totalGastos }} />
                 </div>
             </Row>
+            <div>
+                <SignalComponent gasto={savings} categoria={selectedUser} />
+            </div>
         </Container>
     );
 }
