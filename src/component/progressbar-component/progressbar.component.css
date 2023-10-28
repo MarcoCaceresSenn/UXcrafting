@@ -6,7 +6,7 @@
   }
   
 .progress-bar{
-  background-color: var(--naranjo) !important;
+  background-color: #6AC90F !important;
   }
 
   .gastos{
@@ -21,4 +21,13 @@
     left: 18%;
     top: 20px;
     font-weight: bold;
+  }
+  .spaner {
+    color: var(--azul);
+  }
+  .texto-card {
+    margin-top: 2vw;
+    color : var(--azul);
+    font-weight: bold;
+    font-size: 25px;
   }

@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import './expense.css'
 
 import UserSelector from '../component/user-selector/user.selector';
 
@@ -138,7 +139,7 @@ function ExpenseAnalyzerView() {
                             ))}
                         </Form.Select>
                     </Form.Group>
-                    <Button className='mt-2' variant="primary" onClick={handleFilterMonths}>
+                    <Button className='mt-3 bg-button' onClick={handleFilterMonths}>
                         Filtrar Meses
                     </Button>
                 </Col>

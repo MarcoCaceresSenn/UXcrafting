@@ -13,20 +13,24 @@ export default function Progressbar({ mesSeleccionado, ingreso, gasto }) {
   return (
     <div>
       <div className="d-flex justify-content-center">
-      <p className="gastos">Gastos</p>
-      <p className="ingreso">Ingresos</p>
+        <p className="gastos">Gastos <span className="spaner">$/.500.00</span></p>
+        <p className="ingreso">Ingresos <span className="spaner">$/.500.00</span></p>
       </div>
       <div
         className="d-flex justify-content-center align-items-center"
-        style={{ height: "5vh" }}  
+        style={{ height: "5vh" }}
       >
-   
+
         <ProgressBar
-          className="w-50"
+          className="w-100"
           now={valor}
           label={`${valor.toFixed(2)}%`}
         />
-         
+
+      </div>
+
+      <div className="espacio">
+        <h1 className="texto-card">Descubre que hubiera pasado si gestionabas mejor tu dinero</h1>
       </div>
       <Button porcentaje={valor} />
     </div>

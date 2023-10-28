@@ -16,8 +16,8 @@ export default function ButtonComponent({ porcentaje }) {
   }, [porcentaje]);
 
   return (
-    <div>
-      <Button href="/expense-analyzer" className="custom">
+    <div className="mb-5">
+      <Button href="/expense-analyzer" className="custom rounded-pill p-3">
         {texto}  <BsFillPiggyBankFill/>
       </Button>
     </div>

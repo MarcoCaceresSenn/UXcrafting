@@ -1,0 +1,9 @@
+
+
+.bg-button {
+    border: none;
+    background-color: var(--naranjo) !important;
+}
+.bg-button:hover {
+    background-color: var(--celeste) !important;
+}
