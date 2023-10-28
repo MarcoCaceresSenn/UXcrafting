@@ -13,8 +13,8 @@ export default function Progressbar({ mesSeleccionado, ingreso, gasto }) {
   return (
     <div>
       <div className="d-flex justify-content-center">
-        <p className="gastos">Gastos <span className="spaner">$/.500.00</span></p>
-        <p className="ingreso">Ingresos <span className="spaner">$/.500.00</span></p>
+        <p className="gastos">Gastos</p>
+        <p className="ingreso">Ingresos</p>
       </div>
       <div
         className="d-flex justify-content-center align-items-center"
