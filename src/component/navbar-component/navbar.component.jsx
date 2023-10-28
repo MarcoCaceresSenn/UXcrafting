@@ -1,23 +1,23 @@
 import React from 'react';
-import Logo from '../../assets/images/logo-blanco.svg';
-import './navbar.component.css';
-import { useNavigate } from 'react-router-dom';
-import './navbar.component.css';
+//import Logo from '../../assets/images/logo-blanco.svg';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import './navbar.component.css';
+import CustomNavbarBrand from './custom.navbar-brand.jsx';
 
 function NavBarComponent() {
-
     return (
         <>
-            <Navbar bg="dark" data-bs-theme="dark">
+            <Navbar className='navbar bg-bcp' data-bs-theme="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
+                    <CustomNavbarBrand />
+
+                    <Nav className="ml-auto align-items-center gap-5">
+                        <Nav.Link href="#">Inicio</Nav.Link>
+                        <Nav.Link href="#">Operaciones</Nav.Link>
+                        <Nav.Link className="custom-feature rounded" href="/mis-finanzas">Mis Finanzas</Nav.Link>
+                        <Nav.Link href="#">Explora</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>

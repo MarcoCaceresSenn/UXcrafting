@@ -1,0 +1,30 @@
+:root {
+    --azul: #002A8D;
+    --naranjo: #FF7800;
+    --blanco: #FFFFFF;
+    --celeste: #3D77FF;
+}
+
+.navbar {
+    height: 9vh;
+}
+
+.bg-bcp {
+    background-color: var(--azul);
+}
+
+.custom-feature {
+    background-color: var(--naranjo);
+    position: relative;
+    padding: 15px;
+}
+
+.custom-feature:hover {
+    box-shadow: 0px 0px 5px 0px var(--blanco);
+    color: var(--blanco);
+}
+
+.nav-link {
+    font: bolder 16px 'Roboto', sans-serif;
+    color: var(--blanco);
+}
